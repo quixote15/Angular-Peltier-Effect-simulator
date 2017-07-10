@@ -3,3 +3,9 @@ export class Temperatura{
     temperatura: string;
     corrente:string;
 }
+
+export class Ampere{
+    id:number
+    corrente:number;
+    temperatura: number;
+}

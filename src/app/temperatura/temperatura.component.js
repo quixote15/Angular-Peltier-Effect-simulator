@@ -17,7 +17,7 @@ var TempComponent = (function () {
         this.twoImage = '../app/temperatura/imagens/two.png';
         this.beerImage = '../app/temperatura/imagens/beer.png';
         this.tempImage = '../app/temperatura/imagens/temperature.png';
-        this.Correntes = ['Corrente de 5A', 'Corrente de 4.6A', 'Corrente 5,4A'];
+        this.Correntes = [5.0, 4.6, 5.4];
         this.temperatura = { id: 1, temperatura: "6.7", corrente: "2.4" };
         this.tempArray = [0, 0];
         this.temperaturaAmbiente = { id: 1, temperatura: "30.9", corrente: "2.4" };
@@ -54,6 +54,16 @@ var TempComponent = (function () {
             "Refrigerador Peltir está ligado e a temperatura irá variar entre -7 e -6 graus aproximadamente."
             : "Refrigerador Peltir está desligado e a temperatura irá variar entre -6 e -5 graus aproximadamente.";
         this.buttonMessage = this.isFreezing === true ? "Desligar Refrigerador Peltier" : "Ligar Refrigerador Peltier";
+    };
+    TempComponent.prototype.currentChange = function (corrente) {
+        //alert("Evento " + corrente);
+        switch (corrente) {
+            case 5.0:
+        }
+        this.dataservice.getTempByAmpere(index.toString())
+            .then(function (temp) {
+            alert("Temperatura: " + temp);
+        });
     };
     return TempComponent;
 }());

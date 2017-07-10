@@ -49,6 +49,15 @@ var DataService = (function () {
         });
     };
     DataService.prototype.getTempByAmpere = function (ampere) {
+        var url = this.ampereUrl + "/" + ampere;
+        alert(url);
+        return this.http.get(url)
+            .toPromise()
+            .then(function (response) {
+            var temp = response.json().data;
+            console.log("a temperatura com essa amperagem \u00E9 " + temp.temperatura);
+            return temp.temperatura;
+        });
     };
     return DataService;
 }());

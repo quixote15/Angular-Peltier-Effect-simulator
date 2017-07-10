@@ -1829,18 +1829,21 @@ export function nivel(){
 
 export function correntes(){
     return [
-        {
-            ampere: 5.0,
+        {   id:1,
+            corrente: 5.0,
             temperatura: -6
         },
 
         {
-            ampere: 4.7,
+            id:2,
+            corrente: 4.6,
             temperatura: -5
         },
 
         {
-            ampere: 5.4
+            id:3,
+            corrente: 5.4,
+            temperatura: -7
         }
     ];
 }
