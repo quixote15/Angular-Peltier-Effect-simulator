@@ -17,8 +17,10 @@ var TempComponent = (function () {
         this.twoImage = '../app/temperatura/imagens/two.png';
         this.beerImage = '../app/temperatura/imagens/beer.png';
         this.tempImage = '../app/temperatura/imagens/temperature.png';
+        this.Correntes = ['Corrente de 5A', 'Corrente de 4.6A', 'Corrente 5,4A'];
         this.temperatura = { id: 1, temperatura: "6.7", corrente: "2.4" };
         this.tempArray = [0, 0];
+        this.temperaturaAmbiente = { id: 1, temperatura: "30.9", corrente: "2.4" };
         this.isFreezing = true;
         this.id = 1;
         this.termoMessage = "Refrigerador Peltir está ligado e a temperatura irá variar entre -7 e -6 graus aproximadamente.";
@@ -41,6 +43,7 @@ var TempComponent = (function () {
         var _this = this;
         this.dataservice.getTemperatura(this.id, this.isFreezing).then(function (temp) {
             _this.temperatura = temp;
+            _this.temperaturaAmbiente.temperatura = "3" + (_this.temperatura.temperatura);
             console.log("Got a temperature " + _this.temperatura.temperatura + "°C");
         });
         this.id = (this.id + 1) % 100;

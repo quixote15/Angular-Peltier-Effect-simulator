@@ -14,9 +14,11 @@ export class TempComponent implements OnInit {
     twoImage = '../app/temperatura/imagens/two.png';
     beerImage = '../app/temperatura/imagens/beer.png';
     tempImage = '../app/temperatura/imagens/temperature.png';
+    Correntes = ['Corrente de 5A','Corrente de 4.6A','Corrente 5,4A'];
     temperatura: Temperatura = {id :1,temperatura:"6.7",corrente: "2.4"};
     tempArray = [0,0];
     temperaturas: Temperatura[];
+    temperaturaAmbiente: Temperatura = {id:1,temperatura: "30.9",corrente: "2.4"};
     isFreezing = true;
     id = 1;
     tick:string;
@@ -51,7 +53,7 @@ export class TempComponent implements OnInit {
            this.dataservice.getTemperatura(this.id,this.isFreezing).then(
             temp =>{
                 this.temperatura = temp;
-                
+                this.temperaturaAmbiente.temperatura = "3" +(this.temperatura.temperatura); 
                 
                 console.log("Got a temperature " + this.temperatura.temperatura + "°C");
             });

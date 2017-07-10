@@ -11,14 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var NivelComponent = (function () {
     function NivelComponent() {
-        this.nivelBaril = 400.0;
+        this.nivelBaril = 100.0;
         this.totalCopos = 1;
         this.capacidade = 30; //15 litros
-        this.litros = 30;
+        this.litros = 100;
         this.vazao = 0;
         this.tempo = 5;
         this.valorCopo = 0.5; //um copo === 500 ml
         this.myClass = 'water';
+        this.isfull = false;
+        this.isEmpty = true;
     }
     NivelComponent.prototype.ngOnInit = function () { };
     /**
@@ -29,12 +31,60 @@ var NivelComponent = (function () {
      *
      */
     NivelComponent.prototype.nivelCalcutations = function () {
-        var subCm = 6.7;
-        console.log(this.totalCopos);
-        if (this.totalCopos * subCm < this.nivelBaril) {
-            this.nivelBaril = this.nivelBaril - (this.totalCopos * subCm);
-            this.litros = this.litros - (this.valorCopo * this.totalCopos);
-            this.vazao = (this.valorCopo * this.totalCopos) / this.totalCopos * 5; //Total de 
+    };
+    NivelComponent.prototype.calcularVazao = function (quantidadeLitros, tempoEmSeg) {
+        return quantidadeLitros / tempoEmSeg;
+    };
+    NivelComponent.prototype.esvaziar = function () {
+        var _this = this;
+        if (this.litros > 100) {
+            this.isEmpty = true;
+            this.isfull = false;
+            this.vazao = 0;
+            setTimeout(function () {
+                setTimeout(function () {
+                    _this.litros -= 100;
+                    _this.nivelBaril -= 100;
+                    _this.vazao += _this.calcularVazao(100, 60); //esvaziam-se 300 litros em 3 segundos
+                    setTimeout(function () {
+                        _this.litros -= 100;
+                        _this.nivelBaril -= 100;
+                        _this.vazao += _this.calcularVazao(100, 60); //esvaziam-se 300 litros em 3 segundos
+                    }, 1000);
+                }, 1000);
+                _this.litros -= 100;
+                _this.nivelBaril -= 100;
+                _this.vazao += _this.calcularVazao(100, 60); //esvaziam-se 300 litros em 3 segundos
+            }, 1000);
+        }
+        else {
+            alert("O reservatório já está cheio!");
+        }
+    };
+    NivelComponent.prototype.encher = function () {
+        var _this = this;
+        if (this.litros < 400) {
+            this.isEmpty = false;
+            this.isfull = true;
+            this.vazao = 0;
+            setTimeout(function () {
+                setTimeout(function () {
+                    _this.litros += 100;
+                    _this.nivelBaril += 100;
+                    _this.vazao += _this.calcularVazao(100, 60); //esvaziam-se 300 litros em 3 segundos
+                    setTimeout(function () {
+                        _this.litros += 100;
+                        _this.nivelBaril += 100;
+                        _this.vazao += _this.calcularVazao(100, 2 * 60); //esvaziam-se 300 litros em 3 segundos
+                    }, 2000); //4 segundos para encher
+                }, 1000);
+                _this.litros += 100;
+                _this.nivelBaril += 100;
+                _this.vazao += _this.calcularVazao(100, 60); //esvaziam-se 300 litros em 3 segundos
+            }, 1000);
+        }
+        else {
+            alert("O reservatório já está cheio!");
         }
     };
     return NivelComponent;

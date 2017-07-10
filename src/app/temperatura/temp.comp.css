@@ -108,11 +108,16 @@ body { background: #f2f2f2; }
 }
 
 .introduction{
-    margin: 5%;
+    margin-top: 5%;
+    margin-bottom: 0; 
+}
+
+.introduction h1{
+    text-align: center;
 }
 
 .row{
-    margin-top: 20%;
+    margin-top: 5%;
 
 }
 
@@ -136,4 +141,10 @@ body { background: #f2f2f2; }
     margin-left:15%;
     width: 30%;
     float:left;
+}
+
+.controles{
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10% ;
 }
