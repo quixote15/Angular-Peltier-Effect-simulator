@@ -1522,4 +1522,20 @@ function nivel() {
     ];
 }
 exports.nivel = nivel;
+function correntes() {
+    return [
+        {
+            ampere: 5.0,
+            temperatura: -6
+        },
+        {
+            ampere: 4.7,
+            temperatura: -5
+        },
+        {
+            ampere: 5.4
+        }
+    ];
+}
+exports.correntes = correntes;
 //# sourceMappingURL=sensor-test.js.map

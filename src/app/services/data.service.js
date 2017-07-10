@@ -18,6 +18,7 @@ var DataService = (function () {
         this.temperaturesUrl = 'api/temperaturas';
         this.OnUrl = 'api/peltierOn/';
         this.OffUrl = 'api/peltierOff/';
+        this.ampereUrl = 'api/correntes';
     }
     DataService.prototype.getTemperatures = function () {
         var temperatures = sensor_test_1.createTestTemperature();
@@ -46,6 +47,8 @@ var DataService = (function () {
             var temp = response.json().data;
             return temp;
         });
+    };
+    DataService.prototype.getTempByAmpere = function (ampere) {
     };
     return DataService;
 }());

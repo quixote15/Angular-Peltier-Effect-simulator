@@ -33,8 +33,8 @@
     <h3>Aqui você pode controlar a corrente elétrica das pastilhas responsáveis pelo resfriamento de nossa cerveja</h3>
     <p>A corrente é medida em Amperes e ao variar a corrente você também varia a temperatura da cerveja! legal né?</p>
     
-    <select *ngFor="let corrente of Correntes">
-       <option value="">{{corrente}}</option>
+    <select >
+       <option *ngFor="let corrente of Correntes" value="">{{corrente}}</option>
     </select>
 
 
