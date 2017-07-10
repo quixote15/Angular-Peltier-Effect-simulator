@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'nivel',
     templateUrl: './nivel.component.html',
- 
+    styleUrls: ['./nivel.component.css']
 })
 export class NivelComponent implements OnInit {
     nivelBaril = 400.0;
@@ -13,7 +13,7 @@ export class NivelComponent implements OnInit {
     vazao = 0;
     tempo = 5;
     valorCopo = 0.5; //um copo === 500 ml
-
+    private myClass = 'water';
     constructor() { }
 
     ngOnInit() { }

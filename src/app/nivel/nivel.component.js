@@ -18,6 +18,7 @@ var NivelComponent = (function () {
         this.vazao = 0;
         this.tempo = 5;
         this.valorCopo = 0.5; //um copo === 500 ml
+        this.myClass = 'water';
     }
     NivelComponent.prototype.ngOnInit = function () { };
     /**
@@ -42,6 +43,7 @@ NivelComponent = __decorate([
     core_1.Component({
         selector: 'nivel',
         templateUrl: './nivel.component.html',
+        styleUrls: ['./nivel.component.css']
     }),
     __metadata("design:paramtypes", [])
 ], NivelComponent);
