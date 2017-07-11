@@ -29,6 +29,7 @@ export class TempComponent implements OnInit {
 
     ngOnInit() {
         let timer = Observable.timer(2000, 1500);
+        this.dataservice.getHello();
         timer.subscribe(t => {
             this.getTemperatura(t);
 

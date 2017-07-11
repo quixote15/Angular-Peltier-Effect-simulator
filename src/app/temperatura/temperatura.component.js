@@ -29,6 +29,7 @@ var TempComponent = (function () {
     TempComponent.prototype.ngOnInit = function () {
         var _this = this;
         var timer = Rx_1.Observable.timer(2000, 1500);
+        this.dataservice.getHello();
         timer.subscribe(function (t) {
             _this.getTemperatura(t);
         });
@@ -57,10 +58,7 @@ var TempComponent = (function () {
     };
     TempComponent.prototype.currentChange = function (corrente) {
         //alert("Evento " + corrente);
-        switch (corrente) {
-            case 5.0:
-        }
-        this.dataservice.getTempByAmpere(index.toString())
+        this.dataservice.getTempByAmpere("1")
             .then(function (temp) {
             alert("Temperatura: " + temp);
         });

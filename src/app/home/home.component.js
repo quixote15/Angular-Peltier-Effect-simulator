@@ -18,7 +18,8 @@ var HomeComponent = (function () {
         this.img4 = this.path + 'img4.png';
         this.fabImg = this.path + 'beerFab.jpg';
     }
-    HomeComponent.prototype.ngOnInit = function () { };
+    HomeComponent.prototype.ngOnInit = function () {
+    };
     return HomeComponent;
 }());
 HomeComponent = __decorate([

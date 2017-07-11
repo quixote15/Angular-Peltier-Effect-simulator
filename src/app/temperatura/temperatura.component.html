@@ -32,14 +32,14 @@
 <div class="controles">
     <h3>Aqui você pode controlar a corrente elétrica das pastilhas responsáveis pelo resfriamento de nossa cerveja</h3>
     <p>A corrente é medida em Amperes e ao variar a corrente você também varia a temperatura da cerveja! legal né?</p>
-    
+   <!-- 
     <select  (change)="currentChange($event.target.value)">
        <option   
         *ngFor="let corrente of Correntes" [value]="corrente" >
         {{corrente}}
         </option>
     </select>
-
+-->
 
 </div>
 <div class="row">
@@ -48,7 +48,7 @@
     <div id="left" class="termometro">
 
         <div class="container">
-            <h3 id="titleAmb" ng-model="temperatura.corrente">Voltagem {{temperatura.corrente}}V</h3>
+            <h3 id="titleAmb" ng-model="temperatura.corrente">Tensão {{temperatura.corrente}}V</h3>
             <div class="de">
                 <div class="den">
                     <div class="dene">
@@ -93,14 +93,7 @@
             </div>
         </div>
 
-        <div class="content">
-            <ul>
-
-                <li>Limite superior -7</li>
-                <li>Temperatura Ideal -6</li>
-                <li>Limite Inferior -5&deg;</li>
-            </ul>
-        </div>
+        <p>Temperatura fora do barril de cerveja.</p>
     </div>
 
 

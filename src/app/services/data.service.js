@@ -59,6 +59,13 @@ var DataService = (function () {
             return temp.temperatura;
         });
     };
+    DataService.prototype.getHello = function () {
+        return this.http.get('http://localhost:5000/')
+            .toPromise()
+            .then(function (res) {
+            alert(res);
+        });
+    };
     return DataService;
 }());
 DataService = __decorate([

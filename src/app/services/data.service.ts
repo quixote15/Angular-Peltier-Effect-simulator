@@ -69,4 +69,12 @@ export class DataService {
                 return temp.temperatura;
             });
     }
+
+    getHello(){
+        return this.http.get('http://localhost:5000/')
+            .toPromise()
+            .then(res =>{
+                alert(res);
+            });
+    }
 }
