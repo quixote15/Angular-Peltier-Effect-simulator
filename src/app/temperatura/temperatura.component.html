@@ -1,93 +1,102 @@
 <div class="temp-info">
-    
+
 
     <div class="introduction">
 
         <h1>Nesta área mostramos a temperatura de sua cerveja e a temperatura ambiente</h1>
-        <p>Existem dois termometros digitais que mede a temperatura dentro do baril onde sua cerveja está! Além da temperatura também mostramos a voltagem que nosso equipamento precisa para refrigerar sua cerveja! </p>
+
         <img id="imgCenter" [src]="twoImage">
+        <p>Existem dois termometros digitais que mede a temperatura dentro do baril onde sua cerveja está! Além da temperatura
+            também mostramos a voltagem que nosso equipamento precisa para refrigerar sua cerveja! </p>
         <div class="tutorial">
             <div class="intro">
-                 <h3> O primeiro termometro da esquerda faz a medição da temperatura de sua cerveja para que ela esteja sempre gelada.</h3>
-                 <img [src]="beerImage" >
-                 <h1>Termometro de cerveja</h1>
+                <h3> O primeiro termometro da esquerda faz a medição da temperatura de sua cerveja para que ela esteja sempre
+                    gelada.
+                </h3>
+                <img [src]="beerImage">
+                <h1>Termometro de cerveja</h1>
             </div>
-           
+
             <div class="intro2">
-                 <h3>O segundo termometro mostra a temperatura ambiente fora do barril de cerveja.</h3>
-                 <img [src]="tempImage" >
-                 <h1>Termometro Ambiente</h1>
+                <h3>O segundo termometro mostra a temperatura ambiente fora do barril de cerveja.</h3>
+                <img [src]="tempImage">
+                <h1>Termometro Ambiente</h1>
 
             </div>
-              
+
         </div>
         <div class="clear"></div>
     </div>
 </div>
 
+<div class="controles">
+    <h3>Aqui você pode controlar a corrente elétrica das pastilhas responsáveis pelo resfriamento de nossa cerveja</h3>
+    <p>A corrente é medida em Amperes e ao variar a corrente você também varia a temperatura da cerveja! legal né?</p>
+   <!-- 
+    <select  (change)="currentChange($event.target.value)">
+       <option   
+        *ngFor="let corrente of Correntes" [value]="corrente" >
+        {{corrente}}
+        </option>
+    </select>
+-->
 
-    <div class="row">
+</div>
+<div class="row">
 
-    
-        <div id="left" class="termometro">
-         
-            <div class="container">
-                   <h3 id="titleAmb" ng-model="temperatura.corrente">Voltagem {{temperatura.corrente}}V</h3>
-                <div class="de">
-                    <div class="den">
+
+    <div id="left" class="termometro">
+
+        <div class="container">
+            <h3 id="titleAmb" ng-model="temperatura.corrente">Tensão {{temperatura.corrente}}V</h3>
+            <div class="de">
+                <div class="den">
                     <div class="dene">
                         <div class="denem">
-                        <div class="deneme" ng-model="temperatura" ng-show="updateTemperatura()" >
-                            -{{temperatura.temperatura[0]}}<span>.{{temperatura.temperatura[2]}}</span><strong>&deg;</strong>
+                            <div class="deneme" ng-model="temperatura" ng-show="updateTemperatura()">
+                                -{{temperatura.temperatura[0]}}<span>.{{temperatura.temperatura[2]}}</span><strong>&deg;</strong>
+                            </div>
                         </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
-            </div>
-
-            
-
-            <div class="content">
-                
-                <ul>
-                    <button (click)="toggle()" ng-model="buttonMessage">{{buttonMessage}}</button>
-                    <li ng-if="isFreezing" ng-model="termoMessage">{{termoMessage}}</li>
-                   
-                </ul>
-            </div>
-
-        </div>
-
-
-            
-        <div id="right" class="tempAmbiente">
-            <h3 id="titleAmb" >Temperatura Ambiente</h3>
-            <div class="container">
-                <div class="de">
-                    <div class="den">
-                    <div class="dene">
-                        <div class="denem">
-                        <div class="deneme">
-                            23<span>.9</span><strong>&deg;</strong>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content">
-                <ul>
-                    
-                    <li>Limite superior -7</li>
-                    <li>Temperatura Ideal -6</li>
-                    <li>Limite Inferior -5&deg;</li>
-                </ul>
             </div>
         </div>
 
 
-        <div class="clear"></div>
-    
+
+        <div class="content">
+
+            <ul>
+                <button (click)="toggle()" ng-model="buttonMessage">{{buttonMessage}}</button>
+                <li ng-if="isFreezing" ng-model="termoMessage">{{termoMessage}}</li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
+
+    <div id="right" class="tempAmbiente">
+        <h3 id="titleAmb">Temperatura Ambiente</h3>
+        <div class="container">
+            <div class="de">
+                <div class="den">
+                    <div class="dene">
+                        <div class="denem">
+                            <div class="deneme" ng-model="temperaturaAmbiente">
+                                {{temperaturaAmbiente.temperatura[0]}}{{temperaturaAmbiente.temperatura[1]}}<span>.9</span><strong>&deg;</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p>Temperatura fora do barril de cerveja.</p>
+    </div>
+
+
+    <div class="clear"></div>
+
 </div>

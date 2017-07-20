@@ -1826,3 +1826,24 @@ export function nivel(){
             quantidade: 400
         }];
 }
+
+export function correntes(){
+    return [
+        {   id:1,
+            corrente: 5.0,
+            temperatura: -6
+        },
+
+        {
+            id:2,
+            corrente: 4.6,
+            temperatura: -5
+        },
+
+        {
+            id:3,
+            corrente: 5.4,
+            temperatura: -7
+        }
+    ];
+}

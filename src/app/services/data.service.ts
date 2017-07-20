@@ -4,7 +4,8 @@ import {createTestTemperature} from '../sensor-test';
 import {peltierOn} from '../sensor-test';
 import {peltierOff} from '../sensor-test';
 import {Temperatura} from '../model';
-
+import {Ampere} from '../model';
+import {correntes} from '../sensor-test';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -14,6 +15,8 @@ export class DataService {
     private temperaturesUrl = 'api/temperaturas';
     private OnUrl = 'api/peltierOn/';
     private OffUrl = 'api/peltierOff/';
+    private ampereUrl = 'api/correntes';
+   
 
     constructor(private http:Http){}
 
@@ -51,6 +54,27 @@ export class DataService {
                 const temp = response.json().data as Temperatura;
                 return temp;
 
+            });
+    }
+
+    getTempByAmpere(ampere:string){
+       let url = this.ampereUrl+ "/" + ampere;
+       
+       alert(url);
+       return this.http.get(url)
+            .toPromise()
+            .then(response =>{
+                const temp = response.json().data as Ampere;
+                console.log(`a temperatura com essa amperagem é ${temp.temperatura}`)
+                return temp.temperatura;
+            });
+    }
+
+    getHello(){
+        return this.http.get('http://localhost:5000/')
+            .toPromise()
+            .then(res =>{
+                alert(res);
             });
     }
 }
