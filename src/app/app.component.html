@@ -1,7 +1,7 @@
 <div class="navigation">
   <div class="nav">
     <ul>
-      <li class="home"><a class="active" routerLink="home">Home</a></li>
+      <li [ngClass]="{'active': isActive}" class="home"><a (click)="isActive = !isActive" routerLink="home">Home</a></li>
       <li class="temperatura"><a routerLink="temperatura">Temperatura</a></li>
       <li class="nivel"><a routerLink="nivel">Nível</a></li>
       <li class="info"><a routerLink="informacoes">Informações</a></li>
@@ -9,9 +9,6 @@
     </ul>
 
   </div>
-
-
-
 </div>
 
 <div class="border"></div>

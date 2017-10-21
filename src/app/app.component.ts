@@ -5,4 +5,7 @@ import { Component } from '@angular/core';
  //styleUrls: ['style.css'],
  templateUrl: './app.component.html',
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent  { 
+  name = 'Angular';
+  isActive = false;
+ }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output } from '@angular/core';
 
 @Component({
     selector: 'home',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./home-style.css']
 })
 export class HomeComponent implements OnInit {
+    @Output() active = true;
     path = '/../../app/home/home-imgs/';
     img1 = this.path + 'img1.png';
     img2 = this.path + 'img2.png';
